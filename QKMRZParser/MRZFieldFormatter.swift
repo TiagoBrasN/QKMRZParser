@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Algorithms
 
 class MRZFieldFormatter {
     let ocrCorrection: Bool
@@ -137,7 +136,7 @@ class MRZFieldFormatter {
                 }
             }
             
-            let pairs = product(positions, characters)
+            let pairs = positions.product(with: characters)
             let permutations = pairs.permutations(ofCount: positions.count)
             
             for permutation in permutations {
