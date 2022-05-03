@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Algorithms
 
 class MRZFieldFormatter {
     let ocrCorrection: Bool
@@ -29,8 +30,8 @@ class MRZFieldFormatter {
         var checkDigit = checkDigitFollows ? string.substring(endIndex, to: endIndex) : nil
         
         if ocrCorrection {
-            rawValue = correct(rawValue, fieldType: fieldType)
-            checkDigit = (checkDigit == nil) ? nil : correct(checkDigit!, fieldType: fieldType)
+            rawValue = correct(rawValue, fieldType: fieldType, checkDigit: checkDigit)
+            checkDigit = (checkDigit == nil) ? nil : correct(checkDigit!, fieldType: fieldType, checkDigit: checkDigit)
         }
         
         return MRZField(value: format(rawValue, as: fieldType), rawValue: rawValue, checkDigit: checkDigit)
@@ -51,7 +52,7 @@ class MRZFieldFormatter {
         }
     }
     
-    func correct(_ string: String, fieldType: MRZFieldType) -> String {
+    func correct(_ string: String, fieldType: MRZFieldType, checkDigit: String?) -> String {
         switch fieldType {
         case .birthdate, .expiryDate, .hash: // TODO: Check correction of dates (month & day)
             return replaceLetters(in: string)
@@ -59,6 +60,12 @@ class MRZFieldFormatter {
             return replaceDigits(in: string)
         case .sex: // TODO: Improve correction (take into account "M" & "<" too)
             return string.replace("P", with: "F")
+        case .documentNumber:
+            if let checkDigit = checkDigit {
+                return replaceZerosAndOs(in: string, checkDigit: checkDigit)
+            } else {
+                return string
+            }
         default:
             return string
         }
@@ -115,6 +122,41 @@ class MRZFieldFormatter {
             .replace("1", with: "I")
             .replace("2", with: "Z")
             .replace("8", with: "B")
+    }
+    
+    private func replaceZerosAndOs(in string: String, checkDigit: String) -> String {
+        if MRZField.isValueValid(string, checkDigit: checkDigit) {
+            return string
+        } else {
+            var positions = [String.Index]()
+            let characters = [Character("0"), Character("O")]
+            
+            for index in string.indices {
+                if characters.contains(string[index]) {
+                    positions.append(index)
+                }
+            }
+            
+            let pairs = product(positions, characters)
+            let permutations = pairs.permutations(ofCount: positions.count)
+            
+            for permutation in permutations {
+                var s = string
+                
+                permutation.forEach { (index, char) in
+                    let starIndex = s.index(index, offsetBy: 0)
+                    let endIndex = s.index(index, offsetBy: 1)
+                    
+                    s = s.replacingCharacters(in: starIndex..<endIndex, with: "\(char)")
+                }
+                
+                if MRZField.isValueValid(s, checkDigit: checkDigit) {
+                    return s
+                }
+            }
+            
+            return string
+        }
     }
     
     private func replaceLetters(in string: String) -> String {
