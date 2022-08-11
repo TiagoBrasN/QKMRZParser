@@ -42,6 +42,7 @@ class TD1 {
             expiryDate: expiryDate.value as! Date?,
             personalNumber: optionalData.value as! String,
             personalNumber2: (optionalData2.value as! String),
+            documentNumberCheckDigit: documentNumber.checkDigit,
             
             isDocumentNumberValid: documentNumber.isValid!,
             isBirthdateValid: birthdate.isValid!,

@@ -46,6 +46,7 @@ class TD2 {
             expiryDate: expiryDate.value as! Date?,
             personalNumber: optionalData.value as! String,
             personalNumber2: nil,
+            documentNumberCheckDigit: documentNumber.checkDigit,
             
             isDocumentNumberValid: documentNumber.isValid!,
             isBirthdateValid: birthdate.isValid!,
