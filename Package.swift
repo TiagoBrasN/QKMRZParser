@@ -8,15 +8,9 @@ let package = Package(
     products: [
         .library(name: "QKMRZParser", targets: ["QKMRZParser"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-algorithms", from: "1.0.0")
-    ],
     targets: [
         .target(
             name: "QKMRZParser",
-            dependencies: [
-                .product(name: "Algorithms", package: "swift-algorithms")
-            ],
             path: "QKMRZParser",
             exclude: ["Info.plist"]
         ),

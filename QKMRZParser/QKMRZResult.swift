@@ -20,6 +20,8 @@ public struct QKMRZResult {
     public let personalNumber: String
     public let personalNumber2: String? // `nil` if not provided
     
+    public let documentNumberCheckDigit: String?
+    
     public let isDocumentNumberValid: Bool
     public let isBirthdateValid: Bool
     public let isExpiryDateValid: Bool

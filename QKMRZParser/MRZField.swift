@@ -13,7 +13,7 @@ enum MRZFieldType {
 }
 
 // MARK: - MRZField
-struct MRZField {
+public struct MRZField {
     let value: Any?
     let rawValue: String
     let checkDigit: String?
@@ -27,7 +27,7 @@ struct MRZField {
     }
     
     // MARK: Static
-    static func isValueValid(_ value: String, checkDigit: String) -> Bool {
+    public static func isValueValid(_ value: String, checkDigit: String) -> Bool {
         guard let numericCheckDigit = Int(checkDigit) else {
             if checkDigit == "<" {
                 return value.trimmingFillers().isEmpty

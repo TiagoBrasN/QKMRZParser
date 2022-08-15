@@ -16,6 +16,7 @@
 		12E405E721737A3D0081A7C8 /* MRZField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E405E621737A3D0081A7C8 /* MRZField.swift */; };
 		12E405E921737B450081A7C8 /* MRZFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E405E821737B450081A7C8 /* MRZFieldFormatter.swift */; };
 		12E4061021737CD30081A7C8 /* QKMRZResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E4060F21737CD30081A7C8 /* QKMRZResult.swift */; };
+		23F3B9CA28A55DFC007324EC /* Sequence+Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3B9C928A55DFC007324EC /* Sequence+Permutations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		12E405E621737A3D0081A7C8 /* MRZField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZField.swift; sourceTree = "<group>"; };
 		12E405E821737B450081A7C8 /* MRZFieldFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZFieldFormatter.swift; sourceTree = "<group>"; };
 		12E4060F21737CD30081A7C8 /* QKMRZResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QKMRZResult.swift; sourceTree = "<group>"; };
+		23F3B9C928A55DFC007324EC /* Sequence+Permutations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Permutations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		12E405D221736C4A0081A7C8 /* QKMRZParser */ = {
 			isa = PBXGroup;
 			children = (
+				23F3B9C828A55DFC007324EC /* Extensions */,
 				12E405DD217375F40081A7C8 /* Parsers */,
 				12E405DB21736F750081A7C8 /* QKMRZParser.swift */,
 				12E4060F21737CD30081A7C8 /* QKMRZResult.swift */,
@@ -83,6 +86,15 @@
 			);
 			path = Parsers;
 			sourceTree = "<group>";
+		};
+		23F3B9C828A55DFC007324EC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23F3B9C928A55DFC007324EC /* Sequence+Permutations.swift */,
+			);
+			name = Extensions;
+			path = QKMRZParser/Extensions;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -171,6 +183,7 @@
 				12E405E5217379220081A7C8 /* String-Ext.swift in Sources */,
 				12E405E1217376870081A7C8 /* TD2.swift in Sources */,
 				12E405E3217376920081A7C8 /* TD3.swift in Sources */,
+				23F3B9CA28A55DFC007324EC /* Sequence+Permutations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +324,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = app.quko.ios.QKMRZParser;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -337,7 +350,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = app.quko.ios.QKMRZParser;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
