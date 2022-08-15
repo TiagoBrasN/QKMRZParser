@@ -16,6 +16,16 @@ extension String {
 
 // MARK: - Generic
 extension String {
+    func charactersIndices(_ charset: [Character]) -> [Index] {
+        return indices.filter { charset.contains(self[$0]) }
+    }
+    
+    func replacingCharacters(_ pairs: [(index: Index, char: Character)]) -> String {
+        var copy = self
+        pairs.forEach { copy.replaceSubrange($0.index..<copy.index(after: $0.index), with: [$0.char]) }
+        return copy
+    }
+    
     func replace(_ target: String, with: String) -> String {
         return replacingOccurrences(of: target, with: with, options: .literal, range: nil)
     }

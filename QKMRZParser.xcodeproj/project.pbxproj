@@ -16,7 +16,7 @@
 		12E405E721737A3D0081A7C8 /* MRZField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E405E621737A3D0081A7C8 /* MRZField.swift */; };
 		12E405E921737B450081A7C8 /* MRZFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E405E821737B450081A7C8 /* MRZFieldFormatter.swift */; };
 		12E4061021737CD30081A7C8 /* QKMRZResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E4060F21737CD30081A7C8 /* QKMRZResult.swift */; };
-		23F3B9CA28A55DFC007324EC /* Array+Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3B9C928A55DFC007324EC /* Array+Permutations.swift */; };
+		23F3B9CA28A55DFC007324EC /* Sequence+Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3B9C928A55DFC007324EC /* Sequence+Permutations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		12E405E621737A3D0081A7C8 /* MRZField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZField.swift; sourceTree = "<group>"; };
 		12E405E821737B450081A7C8 /* MRZFieldFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZFieldFormatter.swift; sourceTree = "<group>"; };
 		12E4060F21737CD30081A7C8 /* QKMRZResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QKMRZResult.swift; sourceTree = "<group>"; };
-		23F3B9C928A55DFC007324EC /* Array+Permutations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Permutations.swift"; sourceTree = "<group>"; };
+		23F3B9C928A55DFC007324EC /* Sequence+Permutations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Permutations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		23F3B9C828A55DFC007324EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				23F3B9C928A55DFC007324EC /* Array+Permutations.swift */,
+				23F3B9C928A55DFC007324EC /* Sequence+Permutations.swift */,
 			);
 			name = Extensions;
 			path = QKMRZParser/Extensions;
@@ -183,7 +183,7 @@
 				12E405E5217379220081A7C8 /* String-Ext.swift in Sources */,
 				12E405E1217376870081A7C8 /* TD2.swift in Sources */,
 				12E405E3217376920081A7C8 /* TD3.swift in Sources */,
-				23F3B9CA28A55DFC007324EC /* Array+Permutations.swift in Sources */,
+				23F3B9CA28A55DFC007324EC /* Sequence+Permutations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

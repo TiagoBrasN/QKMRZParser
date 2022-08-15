@@ -127,34 +127,18 @@ class MRZFieldFormatter {
         if MRZField.isValueValid(string, checkDigit: checkDigit) {
             return string
         } else {
-            var positions = [String.Index]()
-            let characters = [Character("0"), Character("O")]
+            let possibleValues: [Character] = ["0", "O"]
+            let indices = string.charactersIndices(possibleValues)
             
-            for index in string.indices {
-                if characters.contains(string[index]) {
-                    positions.append(index)
-                }
+            guard !indices.isEmpty else { return string }
+            
+            let permutations: [String] = possibleValues.permutations(takeN: indices.count).map { permutation in
+                assert(permutation.count == indices.count)
+                
+                return string.replacingCharacters(zip(indices, permutation).map { $0 })
             }
             
-            let pairs = positions.product(with: characters)
-            let permutations = pairs.permutations(ofCount: positions.count)
-            
-            for permutation in permutations {
-                var s = string
-                
-                permutation.forEach { (index, char) in
-                    let starIndex = s.index(index, offsetBy: 0)
-                    let endIndex = s.index(index, offsetBy: 1)
-                    
-                    s = s.replacingCharacters(in: starIndex..<endIndex, with: "\(char)")
-                }
-                
-                if MRZField.isValueValid(s, checkDigit: checkDigit) {
-                    return s
-                }
-            }
-            
-            return string
+            return permutations.first(where: { MRZField.isValueValid($0, checkDigit: checkDigit) }) ?? string
         }
     }
     
