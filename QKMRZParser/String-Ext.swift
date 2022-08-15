@@ -8,14 +8,14 @@
 import Foundation
 
 // MARK: - Parser related
-extension String {
+public extension String {
     func trimmingFillers() -> String {
         return trimmingCharacters(in: CharacterSet(charactersIn: "<"))
     }
 }
 
 // MARK: - Generic
-extension String {
+public extension String {
     func charactersIndices(_ charset: [Character]) -> [Index] {
         return indices.filter { charset.contains(self[$0]) }
     }

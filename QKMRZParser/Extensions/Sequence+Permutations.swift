@@ -1,6 +1,6 @@
 import Foundation
 
-extension Sequence {
+public extension Sequence {
     func permutations(takeN: Int) -> [[Element]] {
         func _perm(_ currentArray: [Element]) -> [[Element]] {
             guard currentArray.count < takeN else {
