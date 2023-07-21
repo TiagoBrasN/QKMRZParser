@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class QKMRZParser {
+public class QkMRZParser {
     let formatter: MRZFieldFormatter
     
     enum MRZFormat: Int {
